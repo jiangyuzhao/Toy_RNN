@@ -65,9 +65,6 @@ class SeqDataSet(object):
         if self._batch_size > len(self.valid_X):
             self._batch_size = len(self.valid_y)
 
-        shuffle_idx = np.random.permutation(range(len(self.valid_X)))
-        self.valid_X = self.valid_X[shuffle_idx]
-        self.valid_y = self.valid_y[shuffle_idx]
         for base in range(0, len(self.valid_X), self._batch_size):
             if base + self._batch_size > len(self.valid_X):
                 break
