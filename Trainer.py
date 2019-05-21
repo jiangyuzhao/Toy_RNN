@@ -91,7 +91,7 @@ with tf.Session() as sess:
                          target_sequence_length: valid_target_length,
                          source_sequence_length: valid_source_length})
                     if batch_ii % 10 == 0:
-                        target_sample1 = np.max(outputs_tensor[0], axis=1).tolist()
+                        target_sample1 = np.argmax(outputs_tensor[0], axis=1).tolist()
                         target_sentence = [vocabulary.get_token_by_index(int(word_idx)) for word_idx in target_sample1]
                         print("source sentense " + str(source_sentence))
                         print("target sentense " + str(target_sentence))
